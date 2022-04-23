@@ -20,6 +20,8 @@
 		DD6C82D928146DA10026A6AC /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82D828146DA10026A6AC /* HttpError.swift */; };
 		DD6C82DB28146EC30026A6AC /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82DA28146EC30026A6AC /* HttpClient.swift */; };
 		DD6C82DD281473990026A6AC /* SessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82DC281473990026A6AC /* SessionAdapter.swift */; };
+		DD6C82E2281476D50026A6AC /* SessionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */; };
+		DD6C82E4281477590026A6AC /* UrlProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		DD6C82D828146DA10026A6AC /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		DD6C82DA28146EC30026A6AC /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		DD6C82DC281473990026A6AC /* SessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAdapter.swift; sourceTree = "<group>"; };
+		DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAdapterTests.swift; sourceTree = "<group>"; };
+		DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		6AB24DD523EB546F00530BA5 /* InterviewTests */ = {
 			isa = PBXGroup;
 			children = (
+				DD6C82DE281476680026A6AC /* Scenes */,
 				6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */,
 				6AB24DD823EB546F00530BA5 /* Info.plist */,
 			);
@@ -185,6 +190,31 @@
 				DD6C82D828146DA10026A6AC /* HttpError.swift */,
 				DD6C82DA28146EC30026A6AC /* HttpClient.swift */,
 				DD6C82DC281473990026A6AC /* SessionAdapter.swift */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		DD6C82DE281476680026A6AC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C82DF2814767A0026A6AC /* _shared */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DD6C82DF2814767A0026A6AC /* _shared */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C82E0281476830026A6AC /* Infra */,
+			);
+			path = _shared;
+			sourceTree = "<group>";
+		};
+		DD6C82E0281476830026A6AC /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */,
+				DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -306,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6C82E4281477590026A6AC /* UrlProtocolStub.swift in Sources */,
+				DD6C82E2281476D50026A6AC /* SessionAdapterTests.swift in Sources */,
 				6ABE2F9024CEF691009D7593 /* ListContactServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
