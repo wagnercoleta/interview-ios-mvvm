@@ -22,6 +22,7 @@
 		DD6C82DD281473990026A6AC /* SessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82DC281473990026A6AC /* SessionAdapter.swift */; };
 		DD6C82E2281476D50026A6AC /* SessionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */; };
 		DD6C82E4281477590026A6AC /* UrlProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */; };
+		DD6C82E7281484990026A6AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E6281484990026A6AC /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		DD6C82DC281473990026A6AC /* SessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAdapter.swift; sourceTree = "<group>"; };
 		DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAdapterTests.swift; sourceTree = "<group>"; };
 		DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolStub.swift; sourceTree = "<group>"; };
+		DD6C82E6281484990026A6AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				DD6C82D728146D760026A6AC /* Infra */,
+				DD6C82E5281483890026A6AC /* ViewModel */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -217,6 +220,14 @@
 				DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */,
 			);
 			path = Infra;
+			sourceTree = "<group>";
+		};
+		DD6C82E5281483890026A6AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C82E6281484990026A6AC /* Observable.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6C82E7281484990026A6AC /* Observable.swift in Sources */,
 				DD6C82DD281473990026A6AC /* SessionAdapter.swift in Sources */,
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
