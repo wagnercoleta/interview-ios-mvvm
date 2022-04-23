@@ -11,7 +11,7 @@
 
 ## Alterações no projeto para separação das responsabilidades:
 
-## 001
+## 001 - Classes compartilhadas (_shared)
 
 - Criação de classes compartilhadas no projeto:
   - Interview\Scenes\_shared\Infra\HttpError: Enumerado para tratamento de erros Http.
@@ -19,4 +19,5 @@
   - Interview\Scenes\_shared\Infra\SessionAdapter: Classe adapter que implementa o protocolo HttpClient para requisições Http na aplicação.
   - InterviewTests\Scenes\_shared\Infra\UrlProtocolStub: Mock de Classe de testes para interceptar chamadas de requisição e possibilitar testar classes de chamadas Http na aplicação.
   - InterviewTests\Scenes\_shared\Infra\SessionAdapterTests: Classe de testes (TU) para classe SessionAdapter.
-  - InterviewTests\Scenes\_shared\ViewModel\Observable: Classe utlizada para realizar o bind entre a View e ViewModel quando existir uma alteração de propriedade da ViewModel e a View precisar ser notificada para atualização. 
+  - Interview\Scenes\_shared\ViewModel\Observable: Classe utlizada para realizar o bind entre a View e ViewModel quando existir uma alteração de propriedade da ViewModel e a View precisar ser notificada para atualização. 
+  - Interview\Scenes\_shared\View\AlertView: Protocolo com objetivo de notificar a View através da ViewModel para exibição de mensagens com alerts e evitar acoplamento.

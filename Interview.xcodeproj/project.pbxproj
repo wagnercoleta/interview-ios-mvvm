@@ -23,6 +23,7 @@
 		DD6C82E2281476D50026A6AC /* SessionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */; };
 		DD6C82E4281477590026A6AC /* UrlProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */; };
 		DD6C82E7281484990026A6AC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E6281484990026A6AC /* Observable.swift */; };
+		DD6C82EA2814880B0026A6AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82E92814880B0026A6AC /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		DD6C82E1281476D50026A6AC /* SessionAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAdapterTests.swift; sourceTree = "<group>"; };
 		DD6C82E3281477590026A6AC /* UrlProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolStub.swift; sourceTree = "<group>"; };
 		DD6C82E6281484990026A6AC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		DD6C82E92814880B0026A6AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				DD6C82D728146D760026A6AC /* Infra */,
 				DD6C82E5281483890026A6AC /* ViewModel */,
+				DD6C82E8281487F50026A6AC /* View */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -228,6 +231,14 @@
 				DD6C82E6281484990026A6AC /* Observable.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD6C82E8281487F50026A6AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C82E92814880B0026A6AC /* AlertView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +346,7 @@
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
+				DD6C82EA2814880B0026A6AC /* AlertView.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				DD6C82D928146DA10026A6AC /* HttpError.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,
