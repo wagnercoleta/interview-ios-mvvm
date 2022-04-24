@@ -1,12 +1,12 @@
 import UIKit
 
-class UserIdsLegacy {
-    static let legacyIds = [10, 11, 12, 13]
-    
-    static func isLegacy(id: Int) -> Bool {
-        return legacyIds.contains(id)
-    }
-}
+//class UserIdsLegacy {
+//    static let legacyIds = [10, 11, 12, 13]
+//    
+//    static func isLegacy(id: Int) -> Bool {
+//        return legacyIds.contains(id)
+//    }
+//}
 
 class ListContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     lazy var activity: UIActivityIndicatorView = {
@@ -48,7 +48,7 @@ class ListContactsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ListContactsViewModel()
+        //viewModel = ListContactsViewModel()
         configureViews()
         
         navigationController?.title = "Lista de contatos"
@@ -109,7 +109,7 @@ class ListContactsViewController: UIViewController, UITableViewDataSource, UITab
         self.present(alert, animated: true)
     }
     
-    func loadData() {
+    func loadData() {/*
         viewModel.loadContacts { contacts, error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -125,6 +125,6 @@ class ListContactsViewController: UIViewController, UITableViewDataSource, UITab
                 self.tableView.reloadData()
                 self.activity.stopAnimating()
             }
-        }
+        }*/
     }
 }

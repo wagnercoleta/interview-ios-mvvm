@@ -22,8 +22,14 @@
   - Interview\Scenes\_shared\ViewModel\Observable: Classe utlizada para realizar o bind entre a View e ViewModel quando existir uma alteração de propriedade da ViewModel e a View precisar ser notificada para atualização. 
   - Interview\Scenes\_shared\View\AlertView: Protocolo com objetivo de notificar a View através da ViewModel para exibição de mensagens com alerts e evitar acoplamento.
 
-## 002 - Classe de serviço Http
+## 002 - Classe de serviço (HTTP)
 
 - Interview\Scenes\ListContacts\Services\ListContactsServices: Restruturação da classe de serviço para utilizar o adapter/protocolo responsável por chamadas http da aplicação. Com essa restruturação, a responsabilidade de chamadas http foi delegada ao adapter/protocolo (HttpClient) repassado no construtor do serviço.
 - InterviewTests\Scenes\ListContacts\Services\ListContactsServicesTests: Classe de testes (TU) para classe ListContactsServices.
 - InterviewTests\Scenes\_shared\Infra\HttpClientMock: Classe de mock para possibilitar a criação de testes unitários ao utilizar o protocolo HttpClient.
+
+## 003 - Classe de ViewModel
+
+- Interview\Scenes\ListContacts\ViewModels\ListContactsViewModel: Restruturação da classe de ViewModel de contatos da aplicação, permitindo apenas responsabilidade de carregar os dados (via chamada do serviço injetado) e seleção de contatos através da classe "UserIdsLegacy" e delegando a exibição para a View pelo protocolo "AlertView".
+- InterviewTests\Scenes\ListContacts\ViewModels\ListContactsViewModelTests: Classe de testes (TU) para classe ListContactsViewModel.
+- InterviewTests\Scenes\_shared\View\AlertViewMock: Classe de mock para possibilitar a criação de testes unitários ao utilizar o protocolo AlertView.
