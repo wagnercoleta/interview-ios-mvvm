@@ -4,9 +4,8 @@ import XCTest
 class ListContactServiceTests: XCTestCase {
     
     func test_call_fetchContacts_with_invalid_url() {
-        let httpClient = HttpClientMock()
         let url = ""
-        let sut = ListContactService(httpClient: httpClient, apiURL: url)
+        let (sut, httpClient) = makeSut(url: url)
         let exp = expectation(description: "waiting")
         var errorTemp: Error?
         sut.fetchContacts { contacts, error in
@@ -19,9 +18,8 @@ class ListContactServiceTests: XCTestCase {
     }
     
     func test_call_fetchContacts_with_data_invalid() {
-        let httpClient = HttpClientMock()
         let url = "http"
-        let sut = ListContactService(httpClient: httpClient, apiURL: url)
+        let (sut, httpClient) = makeSut(url: url)
         let exp = expectation(description: "waiting")
         var errorTemp: Error?
         sut.fetchContacts { contatcs, error in
@@ -34,9 +32,8 @@ class ListContactServiceTests: XCTestCase {
     }
     
     func test_call_fetchContacts_with_data_valid() {
-        let httpClient = HttpClientMock()
         let url = "http"
-        let sut = ListContactService(httpClient: httpClient, apiURL: url)
+        let (sut, httpClient) = makeSut(url: url)
         let exp = expectation(description: "waiting")
         var dataContacts: [Contact]?
         sut.fetchContacts { contatcs, error in
@@ -47,6 +44,15 @@ class ListContactServiceTests: XCTestCase {
         wait(for: [exp], timeout: 1)
         XCTAssertEqual(1, dataContacts!.count)
         XCTAssertEqual(2, dataContacts![0].id)
+    }
+}
+
+extension ListContactServiceTests {
+    func makeSut(url: String) -> (sut: ListContactService, httpClient: HttpClientMock) {
+        let httpClient = HttpClientMock()
+        let networkManager = NetworkManager(httpClient: httpClient)
+        let sut = ListContactService(networkManager: networkManager, apiURL: url)
+        return (sut, httpClient)
     }
 }
 

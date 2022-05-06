@@ -10,7 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let httpClient = SessionAdapter()
-            let listContactsService = ListContactService(httpClient: httpClient)
+            let networkManager = NetworkManager(httpClient: httpClient)
+            let listContactsService = ListContactService(networkManager: networkManager)
             let viewModel = ListContactsViewModel(contactService: listContactsService)
             let viewController = ListContactsViewController(viewModel: viewModel)
             

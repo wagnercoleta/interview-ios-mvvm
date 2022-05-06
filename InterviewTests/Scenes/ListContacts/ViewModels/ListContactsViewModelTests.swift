@@ -12,10 +12,7 @@ import XCTest
 class ListContactsViewModelTests: XCTestCase {
     
     func test_call_selectedContact_is_not_legacy() {
-        let httpClient = HttpClientMock()
-        let url = "http"
-        let service = ListContactService(httpClient: httpClient, apiURL: url)
-        let sut = ListContactsViewModel(contactService: service)
+        let (sut, _, _) = makeSut()
         let alertView = AlertViewMock()
         sut.setAlertView(alertView: alertView)
         sut.selectedContact(contact: Contact(id: 1, name: "name", photoURL: ""))
@@ -24,10 +21,7 @@ class ListContactsViewModelTests: XCTestCase {
     }
     
     func test_call_selectedContact_is_legacy() {
-        let httpClient = HttpClientMock()
-        let url = "http"
-        let service = ListContactService(httpClient: httpClient, apiURL: url)
-        let sut = ListContactsViewModel(contactService: service)
+        let (sut, _, _) = makeSut()
         let alertView = AlertViewMock()
         sut.setAlertView(alertView: alertView)
         sut.selectedContact(contact: Contact(id: 10, name: "name", photoURL: ""))
@@ -36,10 +30,7 @@ class ListContactsViewModelTests: XCTestCase {
     }
     
     func test_call_loadContacts_with_error() {
-        let httpClient = HttpClientMock()
-        let url = "http"
-        let service = ListContactService(httpClient: httpClient, apiURL: url)
-        let sut = ListContactsViewModel(contactService: service)
+        let (sut, httpClient, service) = makeSut()
         let alertView = AlertViewMock()
         sut.setAlertView(alertView: alertView)
         let exp = expectation(description: "waiting")
@@ -55,10 +46,7 @@ class ListContactsViewModelTests: XCTestCase {
     }
     
     func test_call_loadContacts_with_data() {
-        let httpClient = HttpClientMock()
-        let url = "http"
-        let service = ListContactService(httpClient: httpClient, apiURL: url)
-        let sut = ListContactsViewModel(contactService: service)
+        let (sut, httpClient, service) = makeSut()
         let alertView = AlertViewMock()
         sut.setAlertView(alertView: alertView)
         let exp = expectation(description: "waiting")
@@ -75,3 +63,13 @@ class ListContactsViewModelTests: XCTestCase {
     
 }
 
+extension ListContactsViewModelTests {
+    func makeSut() -> (sut: ListContactsViewModel, httpClient: HttpClientMock, service: ListContactService) {
+        let httpClient = HttpClientMock()
+        let networkManager = NetworkManager(httpClient: httpClient)
+        let url = "http"
+        let service = ListContactService(networkManager: networkManager, apiURL: url)
+        let sut = ListContactsViewModel(contactService: service)
+        return (sut, httpClient, service)
+    }
+}

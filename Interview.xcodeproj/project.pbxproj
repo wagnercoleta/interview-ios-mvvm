@@ -28,6 +28,8 @@
 		DD6C82F2281494520026A6AC /* UserIdsLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F1281494520026A6AC /* UserIdsLegacy.swift */; };
 		DD6C82F5281496030026A6AC /* ListContactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F4281496030026A6AC /* ListContactsViewModelTests.swift */; };
 		DD6C82F8281497130026A6AC /* AlertViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F7281497130026A6AC /* AlertViewMock.swift */; };
+		DD6C82FA28255FB30026A6AC /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */; };
+		DD6C82FC282560BA0026A6AC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82FB282560BA0026A6AC /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		DD6C82F1281494520026A6AC /* UserIdsLegacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdsLegacy.swift; sourceTree = "<group>"; };
 		DD6C82F4281496030026A6AC /* ListContactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewModelTests.swift; sourceTree = "<group>"; };
 		DD6C82F7281497130026A6AC /* AlertViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewMock.swift; sourceTree = "<group>"; };
+		DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		DD6C82FB282560BA0026A6AC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 				DD6C82D828146DA10026A6AC /* HttpError.swift */,
 				DD6C82DA28146EC30026A6AC /* HttpClient.swift */,
 				DD6C82DC281473990026A6AC /* SessionAdapter.swift */,
+				DD6C82FB282560BA0026A6AC /* NetworkManager.swift */,
+				DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -330,7 +336,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = PicPay;
 				TargetAttributes = {
 					6AB24DBB23EB546D00530BA5 = {
@@ -387,6 +393,7 @@
 			files = (
 				DD6C82E7281484990026A6AC /* Observable.swift in Sources */,
 				DD6C82DD281473990026A6AC /* SessionAdapter.swift in Sources */,
+				DD6C82FA28255FB30026A6AC /* NetworkManagerProtocol.swift in Sources */,
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
@@ -396,6 +403,7 @@
 				DD6C82D928146DA10026A6AC /* HttpError.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,
 				DD6C82DB28146EC30026A6AC /* HttpClient.swift in Sources */,
+				DD6C82FC282560BA0026A6AC /* NetworkManager.swift in Sources */,
 				6AB24DF823EB558D00530BA5 /* ContactCell.swift in Sources */,
 				6AB24DC223EB546D00530BA5 /* SceneDelegate.swift in Sources */,
 			);
@@ -462,6 +470,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -522,6 +531,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

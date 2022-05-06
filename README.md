@@ -23,6 +23,8 @@ Fonte: https://github.com/PicPay/interview-ios
   - **HttpError**: Enumerado para tratamento de erros Http.
   - **HttpClient**: Protocolo com objetivo de abstração para chamadas Http da aplicação e implementação do adapter de chamadas Http.
   - **SessionAdapter**: Classe adapter que implementa o protocolo HttpClient para requisições Http na aplicação.
+  - **NetworkManagerProtocol**: Protocolo para classe de gerenciamento de redes;
+  - **NetworkManager**: Classe de gerenciamento de rede para transformar os dados recebidos via httpClient em objetos concretos via generics;
   - **UrlProtocolStub**: Mock de Classe de testes para interceptar chamadas de requisição e possibilitar testar classes de chamadas Http na aplicação.
   - **SessionAdapterTests**: Classe de testes (TU) para classe SessionAdapter.
   - **Observable**: Classe utlizada para realizar o bind entre a View e ViewModel quando existir uma alteração de propriedade da ViewModel e a View precisar ser notificada para atualização. 
@@ -30,7 +32,7 @@ Fonte: https://github.com/PicPay/interview-ios
 
 ## 02 - Serviço (HTTP)
 
-- **ListContactsServices**: Restruturação da classe de serviço para utilizar o adapter/protocolo responsável por chamadas http da aplicação. Com essa restruturação, a responsabilidade de chamadas http foi delegada ao adapter/protocolo (HttpClient) repassado no construtor do serviço.
+- **ListContactsServices**: Restruturação da classe de serviço para utilizar o network/protocolo responsável por chamadas de rede da aplicação. Com essa restruturação, a responsabilidade de chamadas de rede foi delegada ao protocolo (NetworkManagerProtocol) repassado no construtor do serviço.
 - **ListContactsServicesTests**: Classe de testes (TU) para classe ListContactsServices.
 - **HttpClientMock**: Classe de mock para possibilitar a criação de testes unitários ao utilizar o protocolo HttpClient.
 
