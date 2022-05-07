@@ -1,45 +1,48 @@
 import Foundation
 
-protocol ListContactsViewModelProtocol {
-    func setAlertView(alertView: AlertView)
-    var contacts: Observable<[Contact]> { get }
-    func selectedContact(contact: Contact)
-    func loadContacts()
-}
-
-class ListContactsViewModel: ListContactsViewModelProtocol {
+final class ListContactsViewModel {
     
-    private var alertView: AlertView?
-    private let contactService: ListContactServiceProtocol
+    private struct Constans {
+        static let titleError = NSLocalizedString("Ops, ocorreu um erro", comment: "")
+    }
+    
+    private let contactService: ListContactsServiceProtocol
     private var _contacts: Observable<[Contact]> = Observable([])
+    private let userIdsLegacy: UserIdsLegacyProtocol
+    
     var contacts: Observable<[Contact]> {
         get { return _contacts }
     }
     
-    init(contactService: ListContactServiceProtocol){
+    weak var delegate: AlertView?
+    
+    init(contactService: ListContactsServiceProtocol,
+         userIdsLegacy: UserIdsLegacyProtocol = UserIdsLegacy()){
         self.contactService = contactService
+        self.userIdsLegacy = userIdsLegacy
     }
     
-    func setAlertView(alertView: AlertView) {
-        self.alertView = alertView
-    }
-    
-    func selectedContact(contact: Contact) {
-        let isLegacy = UserIdsLegacy.isLegacy(id: contact.id)
-        if (!isLegacy){
-            self.alertView?.showMessage(title: "Você tocou em", message: "\(contact.name)")
-        } else {
-            self.alertView?.showMessage(title: "Atenção", message: "Você tocou no contato sorteado")
-        }
-    }
-    
-    func loadContacts() {
-        contactService.fetchContacts { contacts, error in
+    private func load() {
+        contactService.fetchContacts { contactResponse, error in
             if let error = error {
-                self.alertView?.showMessage(title: "Ops, ocorreu um erro", message: error.localizedDescription)
-            } else if let contacts = contacts {
-                self.contacts.value?.append(contentsOf: contacts)
+                self.delegate?.showMessage(title: Constans.titleError, message: error.localizedDescription)
+            } else if let contacts = contactResponse {
+                var lstContacts = [Contact]()
+                contacts.forEach { contact in
+                    let ct = Contact(id: contact.id,
+                                     name: contact.name,
+                                     photoURL: contact.photoURL,
+                                     isLegacy: self.userIdsLegacy.isLegacy(id: contact.id))
+                    lstContacts.append(ct)
+                }
+                self.contacts.value?.append(contentsOf: lstContacts)
             }
         }
+    }
+}
+
+extension ListContactsViewModel: ListContactsViewModelProtocol {
+    func loadContacts() {
+        load()
     }
 }

@@ -4,8 +4,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 /*
-     Lucas e Helton - Compartilhamento de conhecimento via call
-     -------------------------------------------------------------
+     Compartilhamento de conhecimento via call (05/05/22) com Lucas e Helton
+     ------------------------------------------------------------------------
      
         * Arquitetura de apresentação *
 

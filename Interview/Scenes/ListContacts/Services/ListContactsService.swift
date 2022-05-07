@@ -11,11 +11,7 @@ import Foundation
 ]
 */
 
-protocol ListContactServiceProtocol {
-    func fetchContacts(completion: @escaping ([Contact]?, Error?) -> Void)
-}
-
-class ListContactService: ListContactServiceProtocol {
+final class ListContactService {
     
     private var apiURL = ""
     private let networkManager: NetworkManagerProtocol
@@ -25,8 +21,10 @@ class ListContactService: ListContactServiceProtocol {
         self.networkManager = networkManager
         self.apiURL = apiURL
     }
-    
-    func fetchContacts(completion: @escaping ([Contact]?, Error?) -> Void) {
+}
+
+extension ListContactService: ListContactsServiceProtocol {
+    func fetchContacts(completion: @escaping ([ContactDTO]?, Error?) -> Void) {
         networkManager.fetchNetwork(url: self.apiURL, completion: completion)
     }
 }

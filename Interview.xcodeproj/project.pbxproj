@@ -30,6 +30,13 @@
 		DD6C82F8281497130026A6AC /* AlertViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F7281497130026A6AC /* AlertViewMock.swift */; };
 		DD6C82FA28255FB30026A6AC /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */; };
 		DD6C82FC282560BA0026A6AC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82FB282560BA0026A6AC /* NetworkManager.swift */; };
+		DD6C82FE2825B3930026A6AC /* ListContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82FD2825B3930026A6AC /* ListContactsView.swift */; };
+		DD6C83002825B9BF0026A6AC /* ListContactsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C82FF2825B9BF0026A6AC /* ListContactsViewProtocol.swift */; };
+		DD6C83022825E71A0026A6AC /* UserIdsLegacyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C83012825E71A0026A6AC /* UserIdsLegacyProtocol.swift */; };
+		DD6C83042825E8780026A6AC /* ListContactsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C83032825E8780026A6AC /* ListContactsViewModelProtocol.swift */; };
+		DD6C83062825FD960026A6AC /* ContactDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C83052825FD960026A6AC /* ContactDTO.swift */; };
+		DD6C83082825FF360026A6AC /* ListContactsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C83072825FF360026A6AC /* ListContactsServiceProtocol.swift */; };
+		DDC6B4672826AC8700020352 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6B4662826AC8700020352 /* ContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +77,13 @@
 		DD6C82F7281497130026A6AC /* AlertViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewMock.swift; sourceTree = "<group>"; };
 		DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		DD6C82FB282560BA0026A6AC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DD6C82FD2825B3930026A6AC /* ListContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsView.swift; sourceTree = "<group>"; };
+		DD6C82FF2825B9BF0026A6AC /* ListContactsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewProtocol.swift; sourceTree = "<group>"; };
+		DD6C83012825E71A0026A6AC /* UserIdsLegacyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdsLegacyProtocol.swift; sourceTree = "<group>"; };
+		DD6C83032825E8780026A6AC /* ListContactsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewModelProtocol.swift; sourceTree = "<group>"; };
+		DD6C83052825FD960026A6AC /* ContactDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDTO.swift; sourceTree = "<group>"; };
+		DD6C83072825FF360026A6AC /* ListContactsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsServiceProtocol.swift; sourceTree = "<group>"; };
+		DDC6B4662826AC8700020352 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +174,9 @@
 		6AB24DF023EB552D00530BA5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				DD6C83032825E8780026A6AC /* ListContactsViewModelProtocol.swift */,
 				6AB24DF123EB554300530BA5 /* ListContactsViewModel.swift */,
+				DD6C83012825E71A0026A6AC /* UserIdsLegacyProtocol.swift */,
 				DD6C82F1281494520026A6AC /* UserIdsLegacy.swift */,
 			);
 			path = ViewModels;
@@ -169,7 +185,9 @@
 		6AB24DF323EB555B00530BA5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD6C83072825FF360026A6AC /* ListContactsServiceProtocol.swift */,
 				6AB24DF423EB556700530BA5 /* ListContactsService.swift */,
+				DD6C83052825FD960026A6AC /* ContactDTO.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -177,7 +195,10 @@
 		6AB24DF623EB557200530BA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDC6B4662826AC8700020352 /* ContactView.swift */,
 				6AB24DF723EB558D00530BA5 /* ContactCell.swift */,
+				DD6C82FF2825B9BF0026A6AC /* ListContactsViewProtocol.swift */,
+				DD6C82FD2825B3930026A6AC /* ListContactsView.swift */,
 				6AB24DE923EB54E800530BA5 /* ListContactsViewController.swift */,
 			);
 			path = Views;
@@ -208,8 +229,8 @@
 				DD6C82D828146DA10026A6AC /* HttpError.swift */,
 				DD6C82DA28146EC30026A6AC /* HttpClient.swift */,
 				DD6C82DC281473990026A6AC /* SessionAdapter.swift */,
-				DD6C82FB282560BA0026A6AC /* NetworkManager.swift */,
 				DD6C82F928255FB30026A6AC /* NetworkManagerProtocol.swift */,
+				DD6C82FB282560BA0026A6AC /* NetworkManager.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -392,12 +413,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6C82E7281484990026A6AC /* Observable.swift in Sources */,
+				DDC6B4672826AC8700020352 /* ContactView.swift in Sources */,
+				DD6C83002825B9BF0026A6AC /* ListContactsViewProtocol.swift in Sources */,
 				DD6C82DD281473990026A6AC /* SessionAdapter.swift in Sources */,
+				DD6C83062825FD960026A6AC /* ContactDTO.swift in Sources */,
 				DD6C82FA28255FB30026A6AC /* NetworkManagerProtocol.swift in Sources */,
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
+				DD6C83022825E71A0026A6AC /* UserIdsLegacyProtocol.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
+				DD6C83082825FF360026A6AC /* ListContactsServiceProtocol.swift in Sources */,
+				DD6C83042825E8780026A6AC /* ListContactsViewModelProtocol.swift in Sources */,
 				DD6C82EA2814880B0026A6AC /* AlertView.swift in Sources */,
+				DD6C82FE2825B3930026A6AC /* ListContactsView.swift in Sources */,
 				DD6C82F2281494520026A6AC /* UserIdsLegacy.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				DD6C82D928146DA10026A6AC /* HttpError.swift in Sources */,

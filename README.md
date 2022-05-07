@@ -28,7 +28,7 @@ Fonte: https://github.com/PicPay/interview-ios
   - **UrlProtocolStub**: Mock de Classe de testes para interceptar chamadas de requisição e possibilitar testar classes de chamadas Http na aplicação.
   - **SessionAdapterTests**: Classe de testes (TU) para classe SessionAdapter.
   - **Observable**: Classe utlizada para realizar o bind entre a View e ViewModel quando existir uma alteração de propriedade da ViewModel e a View precisar ser notificada para atualização. 
-  - **AlertView**: Protocolo com objetivo de notificar a View através da ViewModel para exibição de mensagens com alerts e evitar acoplamento.
+  - **AlertView**: Protocolo com objetivo de notificar a ViewController através da View e/u ViewModel para exibição de mensagens com alerts e evitar acoplamento.
 
 ## 02 - Serviço (HTTP)
 
@@ -46,9 +46,10 @@ Fonte: https://github.com/PicPay/interview-ios
 
 A camada de View utilizava da UI Thread (Main) para realizar a carga dos dados e imagens, isso deixava a aplicação mais lenta e travando. Com a restruturação e separação das responsabilidades descritas acima, foi possível carregar os dados e imagens em outras Threads, possibilitando um carregamento mais rápido e interface sem travamentos.
 
-- **ContactCell**: Adicionado o componente "UIActivityIndicatorView" sobre o componente de imagem, parar indicar o carregamento em paralelo da imagem em outra Thread. Outro ajuste nessa classe, foi a inclusão do método "setup (contact: Contact)", utilizado para configurar a célula e carregar a imagem utilizando do serviço de chamada HTTP (SessionAdapter).
-
-- **ListContactsViewController**: Na classe de controller, removemos toda responsabilidade a mais (exibindo alertas e regras de seleção de contatos) dela e delegamos a ViewModel (ListContactsViewModel). Extendemos o protocolo "AlertView", para que a ViewModel possa enviar os alertas para a ViewController poder exibir ao usuário.
+- **ContactView**: Componente "UIView" para facilitar a reutilização dessa mesma view em outros componentes futuros (por exemplo: UICollectionView). Adicionado o componente "UIActivityIndicatorView" sobre o componente de imagem, parar indicar o carregamento em paralelo da imagem em outra Thread. Outro ajuste nessa classe, foi a inclusão do método "setup (contact: Contact)", utilizado para configurar a célula e carregar a imagem utilizando do serviço de chamada HTTP (SessionAdapter). 
+- **ContactCell**: Componente "UITableViewCell" criado para adicionar a view de exibição dos dados (ContactView).
+- **ListContactsView**: Componente "UIView" para facilitar a reutilização dessa mesma view em outras telas da aplicação.
+- **ListContactsViewController**: Na classe de controller, removemos toda responsabilidade a mais dela e delegamos a ViewModel (ListContactsViewModel) e View (ListContacsView). Deixamos com ela apenas a função de "passagem"das informações (para View e ViewModel) e extendemos o protocolo "AlertView", para que essas camadas possam enviar os alertas para a ViewController poder exibir ao usuário.
 
 ## 05 - SceneDelegate
 

@@ -8,10 +8,16 @@
 
 import Foundation
 
-class UserIdsLegacy {
-    static let legacyIds = [10, 11, 12, 13]
+final class UserIdsLegacy {
+    private let legacyIds = [10, 11, 12, 13]
     
-    static func isLegacy(id: Int) -> Bool {
+    private func isLegacyInternal(id: Int) -> Bool {
         return legacyIds.contains(id)
+    }
+}
+
+extension UserIdsLegacy: UserIdsLegacyProtocol {
+    func isLegacy(id: Int) -> Bool {
+        return isLegacyInternal(id: id)
     }
 }

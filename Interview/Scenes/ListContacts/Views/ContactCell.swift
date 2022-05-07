@@ -1,83 +1,36 @@
 import UIKit
 
-class ContactCell: UITableViewCell {
-    lazy var contactImage: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.contentMode = .scaleAspectFit
-        imgView.clipsToBounds = true
-        return imgView
-    }()
+final class ContactCell: UITableViewCell {
     
-    lazy var activity: UIActivityIndicatorView = {
-        let activity = UIActivityIndicatorView()
-        activity.translatesAutoresizingMaskIntoConstraints = false
-        activity.hidesWhenStopped = true
-        activity.startAnimating()
-        return activity
-    }()
-    
-    lazy var fullnameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private var contactView: ContactView!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         configureViews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        configureViews()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func configureViews() {
-        contentView.addSubview(contactImage)
-        contactImage.addSubview(activity)
-        contentView.addSubview(fullnameLabel)
+    private func configureViews() {
+        self.contactView = ContactView(frame: .zero)
+        addSubview(self.contactView)
+    }
+    
+    private func setupConstraints() {
+        self.contactView.translatesAutoresizingMaskIntoConstraints = false
         
-        contactImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-        contactImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        contactImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        contactImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        activity.centerYAnchor.constraint(equalTo: contactImage.centerYAnchor).isActive = true
-        activity.centerXAnchor.constraint(equalTo: contactImage.centerXAnchor).isActive = true
-        
-        fullnameLabel.leadingAnchor.constraint(equalTo: contactImage.trailingAnchor, constant: 16).isActive = true
-        fullnameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
-        fullnameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        fullnameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            self.contactView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            self.contactView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            self.contactView.topAnchor.constraint(equalTo: topAnchor),
+            self.contactView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
     
     func setup(contact: Contact){
-        fullnameLabel.text = contact.name
-        
-        if (contact.photoURL != ""){
-            let httpClient = SessionAdapter()
-            httpClient.get(to: contact.photoURL) { result in
-                var dataImg: Data?
-                
-                switch result {
-                    case .success(let data):
-                        dataImg = data
-                    case .failure(_):
-                        dataImg = nil
-                }
-                
-                DispatchQueue.main.async {
-                    if let data = dataImg {
-                        let image = UIImage(data: data)
-                        self.contactImage.image = image
-                    }
-                    self.activity.stopAnimating()
-                }
-            }
-        }
+        self.contactView.setup(contact: contact)
     }
 }

@@ -35,15 +35,17 @@ class ListContactServiceTests: XCTestCase {
         let url = "http"
         let (sut, httpClient) = makeSut(url: url)
         let exp = expectation(description: "waiting")
-        var dataContacts: [Contact]?
+        var dataContacts = [ContactDTO]()
         sut.fetchContacts { contatcs, error in
-            dataContacts = contatcs
+            if let lst = contatcs {
+                dataContacts = lst
+            }
             exp.fulfill()
         }
         httpClient.completeWithData(mockData!)
-        wait(for: [exp], timeout: 1)
-        XCTAssertEqual(1, dataContacts!.count)
-        XCTAssertEqual(2, dataContacts![0].id)
+        wait(for: [exp], timeout: 2)
+        XCTAssertEqual(1, dataContacts.count)
+        XCTAssertEqual(2, dataContacts[0].id)
     }
 }
 

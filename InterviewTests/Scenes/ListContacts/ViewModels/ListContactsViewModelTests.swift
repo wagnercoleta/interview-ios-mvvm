@@ -11,28 +11,10 @@ import XCTest
 
 class ListContactsViewModelTests: XCTestCase {
     
-    func test_call_selectedContact_is_not_legacy() {
-        let (sut, _, _) = makeSut()
-        let alertView = AlertViewMock()
-        sut.setAlertView(alertView: alertView)
-        sut.selectedContact(contact: Contact(id: 1, name: "name", photoURL: ""))
-        XCTAssertNotNil(alertView.title)
-        XCTAssertNotNil(alertView.message)
-    }
-    
-    func test_call_selectedContact_is_legacy() {
-        let (sut, _, _) = makeSut()
-        let alertView = AlertViewMock()
-        sut.setAlertView(alertView: alertView)
-        sut.selectedContact(contact: Contact(id: 10, name: "name", photoURL: ""))
-        XCTAssertNotNil(alertView.title)
-        XCTAssertNotNil(alertView.message)
-    }
-    
     func test_call_loadContacts_with_error() {
         let (sut, httpClient, service) = makeSut()
-        let alertView = AlertViewMock()
-        sut.setAlertView(alertView: alertView)
+        //let alertView = AlertViewMock()
+        //sut.setAlertView(alertView: alertView)
         let exp = expectation(description: "waiting")
         var errorTemp: Error?
         service.fetchContacts { contacts, error in
@@ -47,10 +29,10 @@ class ListContactsViewModelTests: XCTestCase {
     
     func test_call_loadContacts_with_data() {
         let (sut, httpClient, service) = makeSut()
-        let alertView = AlertViewMock()
-        sut.setAlertView(alertView: alertView)
+        //let alertView = AlertViewMock()
+        //sut.setAlertView(alertView: alertView)
         let exp = expectation(description: "waiting")
-        var dataContacts: [Contact]?
+        var dataContacts: [ContactDTO]?
         service.fetchContacts { contacts, error in
             dataContacts = contacts
             exp.fulfill()

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AlertView {
+protocol AlertView: AnyObject {
     func showMessage(title: String, message: String)
 }
